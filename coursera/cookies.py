@@ -109,6 +109,18 @@ def prepare_auth_headers(session, include_cauth=False):
 
 
 def login(session, username, password, class_name=None):
+    for i in range(100):
+        try:
+            ret = do_login(session, username, password, class_name)
+            logging.info("Logged in with {} retries.".format(i))
+            return ret
+        except (AuthenticationFailed, requests.exceptions.HTTPError):
+            logging.debug("Retrying login")
+            continue
+    return do_login(session, username, password, class_name)
+
+
+def do_login(session, username, password, class_name=None):
     """
     Login on coursera.org with the given credentials.
 
