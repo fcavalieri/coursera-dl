@@ -107,9 +107,9 @@ def parse_args(args=None):
         '--subtitle-language',
         dest='subtitle_language',
         action='store',
-        default='all',
+        default='en',
         help='Choose language to download subtitles and transcripts.'
-        '(Default: all) Use special value "all" to download all available.'
+        '(Default: en) Use special value "all" to download all available.'
         'To download subtitles and transcripts of multiple languages,'
         'use comma(s) (without spaces) to seperate the names of the languages,'
         ' i.e., "en,zh-CN".'
@@ -144,18 +144,18 @@ def parse_args(args=None):
         '(Default: False)')
 
     group_material.add_argument(
-        '--download-quizzes',
+        '--skip-download-quizzes',
         dest='download_quizzes',
-        action='store_true',
-        default=False,
-        help='download quiz and exam questions. (Default: False)')
+        action='store_false',
+        default=True,
+        help='skip download quiz and exam questions. (Default: False)')
 
     group_material.add_argument(
         '--download-notebooks',
         dest='download_notebooks',
         action='store_true',
         default=False,
-        help='download Python Jupyther Notebooks. (Default: False)')
+        help='download Python Jupyther Notebooks. (Default: True)')
 
     group_material.add_argument(
         '--about',  # FIXME: should be --about-course
@@ -213,8 +213,8 @@ def parse_args(args=None):
         '--video-resolution',
         dest='video_resolution',
         action='store',
-        default='540p',
-        help='video resolution to download (default: 540p); '
+        default='720p',
+        help='video resolution to download (default: 720p); '
         'only valid for on-demand courses; '
         'only values allowed: 360p, 540p, 720p')
 
@@ -356,6 +356,13 @@ def parse_args(args=None):
         action='store',
         default=None,
         help='full path to the cookies.txt file')
+
+    group_adv_auth.add_argument(
+        '--cauth',
+        dest='cookies_cauth',
+        action='store',
+        default=None,
+        help='cauth cookie value from browser')
 
     group_adv_auth.add_argument(
         '-n',

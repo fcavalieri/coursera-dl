@@ -282,6 +282,7 @@ credentials (e.g. email address and password or a `~/.netrc` file), the
 class names, as well as any additional parameters:
 ```
     General:                     coursera-dl -u <user> -p <pass> modelthinking-004
+    With CAUTH parameter:	     coursera-dl --cauth 'some-ca-value-from-browser' modelthinking-004
 
     With CAUTH parameter:	 coursera-dl -ca 'some-ca-value-from-browser' modelthinking-004
 ```

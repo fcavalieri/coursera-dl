@@ -862,7 +862,7 @@ class CourseraOnDemand(object):
 
     def extract_links_from_lecture(self, course_id,
                                    video_id, subtitle_language='en',
-                                   resolution='540p'):
+                                   resolution='720p'):
         """
         Return the download URLs of on-demand course video.
 
@@ -1032,7 +1032,7 @@ class CourseraOnDemand(object):
                                                    course_id,
                                                    video_id,
                                                    subtitle_language='en',
-                                                   resolution='540p'):
+                                                   resolution='720p'):
 
         logging.debug('Parsing JSON for video_id <%s>.', video_id)
 
@@ -1433,7 +1433,8 @@ class CourseraOnDemand(object):
                        )
 
         # Return authorization id. This id changes on each request
-        return dom['elements'][0]['authorizationId']
+        #return dom['elements'][0]['authorizationId']
+        return dom['elements'][0]['id']
 
     def _extract_assignment_text(self, element_id):
         """
