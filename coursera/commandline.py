@@ -358,13 +358,6 @@ def parse_args(args=None):
         help='full path to the cookies.txt file')
 
     group_adv_auth.add_argument(
-        '--cauth',
-        dest='cookies_cauth',
-        action='store',
-        default=None,
-        help='cauth cookie value from browser')
-
-    group_adv_auth.add_argument(
         '-n',
         '--netrc',
         dest='netrc',
