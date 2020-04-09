@@ -109,7 +109,7 @@ def prepare_auth_headers(session, include_cauth=False):
 
 
 def login(session, username, password, class_name=None):
-    for i in range(100):
+    for i in range(3):
         try:
             ret = do_login(session, username, password, class_name)
             logging.info("Logged in with {} retries.".format(i))
